@@ -1,11 +1,8 @@
-import Image from "next/image";
-import { Nav } from "./components/nav";
 import { ASSETS } from "@/public/path";
 import { IoIosSearch } from "react-icons/io";
 import { CategoryCarousel } from "./components/carousels/categories";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
-import { Footer } from "./components/footer";
 import { Reviews } from "./components/reviews";
 
 export default function Home() {
