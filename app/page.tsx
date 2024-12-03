@@ -47,10 +47,10 @@ export default function Home() {
         <div className="text-black text-center space-y-8 -mt-20">
           <div className="space-y-2">
             <div className="font-bold  xl:text-5xl">
-              Find a company you can trust
+              Find the best of the best
             </div>
             <div className="font-medium  xl:text-2xl">
-              Real reviews by real people.
+              AUTHENTIC REVIEWS.
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -112,7 +112,7 @@ export default function Home() {
             <span className="ml-2">See more</span>
           </button>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <div className="border-gray-200 border p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
@@ -252,7 +252,7 @@ export default function Home() {
             <span className="ml-2">See more</span>
           </button>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {insuranceCompanies.map((item, index) => (
             <div key={index} className="border-gray-200 border p-4 rounded-2xl">
               <div className="relative h-20 w-[100px]">
