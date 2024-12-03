@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
 export const Nav = () => {
-  const { user, isLoaded } = useUser(); // Get user info from Clerk
+  const { user } = useUser(); // Get user info from Clerk
   return (
     <div className="w-full flex items-center justify-center h-[10vh] bg-black bg-opacity-80 text-white">
       <div className="flex items-center justify-between w-full max-w-[1200px] px-10">
