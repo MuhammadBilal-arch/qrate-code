@@ -1,7 +1,7 @@
 'use server';
 
 import User from '@/utils/models/user.model';
-import { connectMongo } from '../mongodb';
+import { connectMongo } from '../utils/mongodb';
 
 export async function createUser(user: any){
     try {
