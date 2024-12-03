@@ -17,17 +17,22 @@ if (!cached) {
 }
 
 export const connectMongo = async () => {
-  if (cached.conn) return cached.conn;
-
-  cached.promise =
-    cached.promise ||
-    mongoose.connect(MONGODB_URL, {
-      dbName: "clerk-next14-db",
-      bufferCommands: false,
-      connectTimeoutMS: 30000,
-    });
-
-  cached.conn = await cached.promise;
-
-  return cached.conn;
+  try {
+    if (cached.conn) return cached.conn;
+    console.log("Connecting to MongoDB...");
+    cached.promise =
+      cached.promise ||
+      mongoose.connect(MONGODB_URL, {
+        dbName: "MERN",
+        bufferCommands: false,
+        connectTimeoutMS: 30000,
+      });
+  
+    cached.conn = await cached.promise;
+    console.log("MongoDB connection successful.");
+    return cached.conn;
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    throw error;
+  }
 };
