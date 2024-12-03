@@ -3,8 +3,7 @@ import { headers } from 'next/headers'
 import { WebhookEvent } from '@clerk/nextjs/server'
 import { createUser } from '@/utils/actions/user.action'
 import { NextResponse } from 'next/server'
-//@ts-ignore
-// import { clerkClient } from '@clerk/nextjs'
+
 export async function POST(req: Request) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
 
@@ -67,13 +66,9 @@ export async function POST(req: Request) {
     console.log(user,'user data');
     const newUser = await createUser(user)
 
-    // if(newUser) {
-    //     await clerkClient.users.updateUserMetadata(id, {
-    //         publicMetadata: {
-    //             userId: newUser._id
-    //         }
-    //     })
-    // }
+    if(newUser) {
+      console.log('newUser',newUser)
+    }
     return NextResponse.json({status: 200})
   }
   console.log(`Received webhook with ID ${id} and event type of ${eventType}`)
