@@ -65,7 +65,7 @@ const Category = () => {
   });
 
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen px-5 md:px-0">
       <div className=" mx-auto text-black">
         <div className="bg-teal-500 text-white text-center py-10">
           <div className="text-3xl lg:text-4xl font-bold mb-3">

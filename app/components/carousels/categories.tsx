@@ -48,15 +48,18 @@ export const CategoryCarousel = () => {
   const navigate = useRouter();
 
   // Handle drag start
+  // @ts-ignore
   const handleMouseDown = (e:any) => {
     setIsDragging(true);
+    // @ts-ignore
     setStartX(e.clientX || e.touches[0].clientX); // Support touch devices
   };
 
   // Handle drag move
+  // @ts-ignore
   const handleMouseMove = (e:any) => {
     if (!isDragging) return;
-
+  // @ts-ignore
     const currentX = e.clientX || e.touches[0].clientX;
     const diff = currentX - startX;
 
@@ -107,7 +110,7 @@ export const CategoryCarousel = () => {
             }`}
             disabled={currentIndex === 0}
           >
-            <IoIosArrowBack className="text-sm sm:text-base md:text-lg lg:text-xl" />
+            <IoIosArrowBack className="text-xs sm:text-base md:text-lg lg:text-xl" />
           </button>
 
           {/* Right arrow button */}
@@ -126,8 +129,8 @@ export const CategoryCarousel = () => {
           {/* See all button */}
           <button 
           onClick={()=> navigate.push('/categories')}
-          className="py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
-            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-xl">See all</span>
+          className="py-1 sm:py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
+            <span className="ml-2 whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-xl">See all</span>
           </button>
         </div>
       </div>

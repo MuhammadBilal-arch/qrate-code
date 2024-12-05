@@ -46,15 +46,15 @@ export default function Home() {
       >
         <div className="text-black text-center space-y-8 -mt-20">
           <div className="space-y-2">
-            <div className="font-bold  xl:text-5xl">
+            <div className="font-bold text-lg xl:text-5xl">
               Find the best of the best
             </div>
-            <div className="font-medium  xl:text-2xl">
-              AUTHENTIC REVIEWS.
+            <div className="font-medium  text-base xl:text-2xl">
+              Authentic Reviews
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="flex w-[95%] md:w-[400px] lg:w-[500px] 2xl:w-[600px] items-center justify-between px-2 bg-white text-black space-x-2 h-14 rounded-[30px]  shadow-custom">
+            <div className="flex w-[95%] md:w-[400px] lg:w-[500px] 2xl:w-[600px] items-center justify-between px-2 bg-white text-black space-x-2 h-10 sm:h-14 rounded-[30px]  shadow-custom">
               <input
                 className="bg-transparent outline-none h-full w-full px-4"
                 placeholder="Search for company or category"
@@ -67,10 +67,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="text-black w-full mt-10">
+      <div className="text-black w-full mt-10 px-5 md:px-0">
         <CategoryCarousel />
       </div>
-      <div className="max-w-[1200px] mt-10 mx-auto bg-blue-500 rounded-2xl flex flex-col md:flex-row justify-center p-5 md:p-14 space-y-4">
+    <div className="px-4 sm:px-0">
+    <div className="max-w-[1200px] mt-10 mx-auto bg-blue-500 rounded-2xl flex flex-col md:flex-row justify-center p-5 md:p-14 space-y-4">
         <div className="flex flex-col space-y-4  w-full md:w-1/2">
           <div className="font-bold text-2xl xl:text-3xl 2xl:text-4xl">
             Help millions make the right choice
@@ -80,7 +81,7 @@ export default function Home() {
             difference.
           </div>
           <div>
-            <button className="bg-black py-2 px-4 rounded-lg">
+            <button className="bg-black py-1 sm:py-2 px-4 rounded-lg text-xs md:text-sm lg:text-base xl:text-xl">
               Login or sign up
             </button>
           </div>
@@ -103,8 +104,9 @@ export default function Home() {
           />
         </div>
       </div>
+    </div>
       {/* BEST IN BANKS */}
-      <div className="max-w-[1200px] mx-auto text-black mt-10 space-y-4">
+      <div className="max-w-[1200px] px-5 md:px-0 mx-auto text-black mt-10 space-y-4">
         <div className="flex items-center justify-between w-full">
           <div className="text-base sm:text-lg md:text-xl lg:text-2xl">Best in Bank</div>
           {/* See all button */}
@@ -113,7 +115,7 @@ export default function Home() {
           </button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div className="border-gray-200 border p-4 rounded-2xl">
+          <div className="border-gray-200 border p-2 sm:p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
                 <FaCheck className="text-[10px]" />{" "}
@@ -130,8 +132,8 @@ export default function Home() {
               <div className="text-sm text-gray-500 font-medium">
                 www.dugood.org
               </div>
-              <div className="flex space-x-2 mt-2">
-                <div className="flex space-x-1 items-center">
+              <div className="flex space-x-1 sm:space-x-2 mt-2">
+                <div className="flex space-x-1 items-center text-xs sm:text-sm">
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
@@ -145,7 +147,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="border-gray-200 border p-4 rounded-2xl">
+          <div className="border-gray-200 border p-2 sm:p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
                 <FaCheck className="text-[10px]" />{" "}
@@ -162,8 +164,8 @@ export default function Home() {
               <div className="text-sm text-gray-500 font-medium">
                 www.dugood.org
               </div>
-              <div className="flex space-x-2 mt-2">
-                <div className="flex space-x-1 items-center">
+              <div className="flex space-x-1 sm:space-x-2 mt-2">
+                <div className="flex space-x-1 items-center text-xs sm:text-sm">
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
@@ -177,7 +179,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="border-gray-200 border p-4 rounded-2xl">
+          <div className="border-gray-200 border p-2 sm:p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
                 <FaCheck className="text-[10px]" />{" "}
@@ -194,8 +196,8 @@ export default function Home() {
               <div className="text-sm text-gray-500 font-medium">
                 www.dugood.org
               </div>
-              <div className="flex space-x-2 mt-2">
-                <div className="flex space-x-1 items-center">
+              <div className="flex space-x-1 sm:space-x-2 mt-2">
+                <div className="flex space-x-1 items-center text-xs sm:text-sm">
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
@@ -209,7 +211,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="border-gray-200 border p-4 rounded-2xl">
+          <div className="border-gray-200 border p-2 sm:p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
                 <FaCheck className="text-[10px]" />{" "}
@@ -226,8 +228,8 @@ export default function Home() {
               <div className="text-sm text-gray-500 font-medium">
                 www.dugood.org
               </div>
-              <div className="flex space-x-2 mt-2">
-                <div className="flex space-x-1 items-center">
+              <div className="flex space-x-1 sm:space-x-2 mt-2">
+                <div className="flex space-x-1 items-center text-xs sm:text-sm">
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
                   <FaStar className="text-[#fdcc0d]" />
@@ -244,7 +246,7 @@ export default function Home() {
         </div>
       </div>
       {/* BEST IN TRAVEL INSURANCE COMPANY */}
-      <div className="max-w-[1200px] mx-auto text-black my-10 space-y-4">
+      <div className="max-w-[1200px] px-5 md:px-0 mx-auto text-black my-10 space-y-4">
         <div className="flex items-center justify-between w-full">
           <div className="text-base sm:text-lg md:text-xl lg:text-2xl">Best in Travel Insurance Company</div>
           {/* See all button */}
@@ -252,9 +254,9 @@ export default function Home() {
             <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl">See more</span>
           </button>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
           {insuranceCompanies.map((item, index) => (
-            <div key={index} className="border-gray-200 border p-4 rounded-2xl">
+            <div key={index} className="border-gray-200 border p-2 sm:p-4 rounded-2xl">
               <div className="relative h-20 w-[100px]">
                 <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
                   <FaCheck className="text-[10px]" />{" "}
@@ -271,8 +273,8 @@ export default function Home() {
                 <div className="text-sm text-gray-500 font-medium">
                   {item?.website}
                 </div>
-                <div className="flex space-x-2 mt-2">
-                  <div className="flex space-x-1 items-center">
+                <div className="flex space-x-1 sm:space-x-2 mt-2">
+                  <div className="flex space-x-1 items-center text-xs sm:text-sm">
                     <FaStar className="text-[#fdcc0d]" />
                     <FaStar className="text-[#fdcc0d]" />
                     <FaStar className="text-[#fdcc0d]" />

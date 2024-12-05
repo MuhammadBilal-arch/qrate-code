@@ -133,7 +133,7 @@ const CategoryList = () => {
     navigate.push(`/categories/${formattedCategoryName}`);
   };
   return (
-    <div className="max-w-[1200px] mx-auto pb-10">
+    <div className="max-w-[1200px] mx-auto pb-10 px-5 md:px-0">
       <SearchSection />
       <h1 className="text-3xl text-black font-semibold my-10 text-center">
         Explore Companies by Category
