@@ -54,7 +54,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="flex w-[500px] 2xl:w-[600px] items-center justify-between px-2 bg-white text-black space-x-2 h-14 rounded-[30px]  shadow-custom">
+            <div className="flex w-[95%] md:w-[400px] lg:w-[500px] 2xl:w-[600px] items-center justify-between px-2 bg-white text-black space-x-2 h-14 rounded-[30px]  shadow-custom">
               <input
                 className="bg-transparent outline-none h-full w-full px-4"
                 placeholder="Search for company or category"
@@ -70,12 +70,12 @@ export default function Home() {
       <div className="text-black w-full mt-10">
         <CategoryCarousel />
       </div>
-      <div className="max-w-[1200px] mt-10 mx-auto bg-blue-500 rounded-2xl flex justify-between p-14">
-        <div className="flex flex-col space-y-4 w-1/2">
-          <div className="font-bold text-4xl">
+      <div className="max-w-[1200px] mt-10 mx-auto bg-blue-500 rounded-2xl flex flex-col md:flex-row justify-center p-5 md:p-14 space-y-4">
+        <div className="flex flex-col space-y-4  w-full md:w-1/2">
+          <div className="font-bold text-2xl xl:text-3xl 2xl:text-4xl">
             Help millions make the right choice
           </div>
-          <div className="text-xl">
+          <div className="text-lg lg:text-xl">
             Share your experience on Trustpilot, where real reviews make a
             difference.
           </div>
@@ -85,34 +85,34 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="flex items-center justify-end space-x-6 w-1/2">
+        <div className="flex items-center justify-start md:justify-end space-x-6 md:w-1/2">
           <img
             src={ASSETS.HERO}
             alt=""
-            className="rounded-2xl h-52 w-[150px]"
+            className="rounded-2xl h-32 w-[80px] md:h-52 md:w-[150px]"
           />
           <img
             src={ASSETS.HERO}
             alt=""
-            className="rounded-2xl h-52 w-[150px]"
+            className="rounded-2xl h-32 w-[80px] md:h-52 md:w-[150px]"
           />
           <img
             src={ASSETS.HERO}
             alt=""
-            className="rounded-2xl h-52 w-[150px]"
+            className="rounded-2xl h-32 w-[80px] md:h-52 md:w-[150px]"
           />
         </div>
       </div>
       {/* BEST IN BANKS */}
       <div className="max-w-[1200px] mx-auto text-black mt-10 space-y-4">
         <div className="flex items-center justify-between w-full">
-          <div className="text-2xl">Best in Bank</div>
+          <div className="text-base sm:text-lg md:text-xl lg:text-2xl">Best in Bank</div>
           {/* See all button */}
-          <button className="py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
-            <span className="ml-2">See more</span>
+          <button className="py-1 sm:py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
+            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl">See more</span>
           </button>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <div className="border-gray-200 border p-4 rounded-2xl">
             <div className="relative h-20 w-[100px]">
               <div className="absolute space-x-1 py-0.5 flex items-center right-0 z-10 top-0 bg-blue-500 text-white text-xs px-2 rounded">
@@ -246,13 +246,13 @@ export default function Home() {
       {/* BEST IN TRAVEL INSURANCE COMPANY */}
       <div className="max-w-[1200px] mx-auto text-black my-10 space-y-4">
         <div className="flex items-center justify-between w-full">
-          <div className="text-2xl">Best in Travel Insurance Company</div>
+          <div className="text-base sm:text-lg md:text-xl lg:text-2xl">Best in Travel Insurance Company</div>
           {/* See all button */}
-          <button className="py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
-            <span className="ml-2">See more</span>
+          <button className="py-1 sm:py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
+            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl">See more</span>
           </button>
         </div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {insuranceCompanies.map((item, index) => (
             <div key={index} className="border-gray-200 border p-4 rounded-2xl">
               <div className="relative h-20 w-[100px]">
