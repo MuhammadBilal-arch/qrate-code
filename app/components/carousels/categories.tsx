@@ -60,7 +60,7 @@ export const CategoryCarousel = () => {
   return (
     <div className="max-w-[1200px] py-5 mx-auto overflow-hidden space-y-4 flex flex-col items-center justify-center">
       <div className="flex items-center justify-between w-full">
-        <div className="text-2xl">What are you looking for?</div>
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl">What are you looking for?</div>
         <div className="flex items-center space-x-2">
           {/* Left arrow button */}
           <button
@@ -92,7 +92,7 @@ export const CategoryCarousel = () => {
           <button 
           onClick={()=> navigate.push('/categories')}
           className="py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
-            <span className="ml-2">See all</span>
+            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl">See all</span>
           </button>
         </div>
       </div>
