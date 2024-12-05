@@ -7,20 +7,18 @@ import { RiCloseFill } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 export const Nav = () => {
   const [drawerState, setDrawerState] = useState(false);
-  const drawerRef = useRef<any>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
   const { user } = useUser(); // Get user info from Clerk
   const onToggleDrawer = useCallback(() => {
-    console.log('called')
     setDrawerState((prevState) => !prevState);
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
         setDrawerState(false);
       }
     };
-
     if (drawerState) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
