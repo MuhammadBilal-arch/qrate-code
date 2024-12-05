@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import {
   FaDumbbell,
@@ -41,7 +41,42 @@ const categories = [
 
 export const CategoryCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const navigate = useRouter()
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  const containerRef = useRef(null);
+  const navigate = useRouter();
+
+  // Handle drag start
+  const handleMouseDown = (e:any) => {
+    setIsDragging(true);
+    setStartX(e.clientX || e.touches[0].clientX); // Support touch devices
+  };
+
+  // Handle drag move
+  const handleMouseMove = (e:any) => {
+    if (!isDragging) return;
+
+    const currentX = e.clientX || e.touches[0].clientX;
+    const diff = currentX - startX;
+
+    setTranslateX((prev) => prev + diff);
+    setStartX(currentX); // Update the starting point
+  };
+
+  // Handle drag end
+  const handleMouseUp = () => {
+    setIsDragging(false);
+
+    // Calculate the current index based on drag distance
+    const threshold = 100; // Adjust threshold for snap sensitivity
+    if (translateX > threshold && currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1); // Move to the previous card
+    } else if (translateX < -threshold && currentIndex < categories.length - 1) {
+      setCurrentIndex((prev) => prev + 1); // Move to the next card
+    }
+    setTranslateX(0); // Reset the translateX
+  };
 
   // Move to the next category
   const nextCategory = () => {
@@ -72,7 +107,7 @@ export const CategoryCarousel = () => {
             }`}
             disabled={currentIndex === 0}
           >
-            <IoIosArrowBack size={24} />
+            <IoIosArrowBack className="text-sm sm:text-base md:text-lg lg:text-xl" />
           </button>
 
           {/* Right arrow button */}
@@ -85,14 +120,14 @@ export const CategoryCarousel = () => {
             }`}
             disabled={currentIndex === categories.length - 1}
           >
-            <IoIosArrowForward size={24} />
+            <IoIosArrowForward className="text-sm sm:text-base md:text-lg lg:text-xl" />
           </button>
 
           {/* See all button */}
           <button 
           onClick={()=> navigate.push('/categories')}
           className="py-2 px-4 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center">
-            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-2xl">See all</span>
+            <span className="ml-2 text-sm sm:text-base md:text-lg lg:text-xl 2xl:text-xl">See all</span>
           </button>
         </div>
       </div>
@@ -100,13 +135,21 @@ export const CategoryCarousel = () => {
       <div className="flex items-center space-x-4">
         <div className="flex space-x-4">
           <div
+            ref={containerRef}
             className="flex space-x-4 transform transition-transform duration-500 max-w-[1200px]"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={() => setIsDragging(false)} // Reset if mouse leaves
+            onTouchStart={handleMouseDown}
+            onTouchMove={handleMouseMove}
+            onTouchEnd={handleMouseUp}
             style={{ transform: `translateX(-${currentIndex * 200}px)` }}
           >
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="flex min-w-[200px] flex-col items-center justify-center p-4 rounded-lg bg-gray-100 shadow-md"
+                className="flex cursor-pointer hover:shadow-custom hover:bg-black hover:text-white duration-1000 min-w-[200px] flex-col items-center justify-center p-4 rounded-lg bg-gray-100 shadow-md"
               >
                 <div className="text-4xl mb-2">{category.icon}</div>
                 <div className="text-sm font-medium text-center hover:underline-offset-2">
