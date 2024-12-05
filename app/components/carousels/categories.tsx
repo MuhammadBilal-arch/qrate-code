@@ -47,40 +47,32 @@ export const CategoryCarousel = () => {
   const containerRef = useRef(null);
   const navigate = useRouter();
 
-  // Handle drag start
-  // @ts-ignore
-  const handleMouseDown = (e:any) => {
+  const handleDragStart = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     setIsDragging(true);
-    // @ts-ignore
-    setStartX(e.clientX || e.touches[0].clientX); // Support touch devices
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
   };
 
-  // Handle drag move
-  // @ts-ignore
-  const handleMouseMove = (e:any) => {
+  const handleDragMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!isDragging) return;
-  // @ts-ignore
-    const currentX = e.clientX || e.touches[0].clientX;
-    const diff = currentX - startX;
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    const diff = clientX - startX;
 
     setTranslateX((prev) => prev + diff);
-    setStartX(currentX); // Update the starting point
+    setStartX(clientX); // Update starting point
   };
 
-  // Handle drag end
-  const handleMouseUp = () => {
+  const handleDragEnd = () => {
     setIsDragging(false);
 
-    // Calculate the current index based on drag distance
-    const threshold = 100; // Adjust threshold for snap sensitivity
+    const threshold = 100; // Adjust threshold for snapping
     if (translateX > threshold && currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1); // Move to the previous card
+      setCurrentIndex((prev) => prev - 1);
     } else if (translateX < -threshold && currentIndex < categories.length - 1) {
-      setCurrentIndex((prev) => prev + 1); // Move to the next card
+      setCurrentIndex((prev) => prev + 1);
     }
-    setTranslateX(0); // Reset the translateX
+    setTranslateX(0); // Reset translateX
   };
-
   // Move to the next category
   const nextCategory = () => {
     if (currentIndex < categories.length - 1) {
@@ -140,13 +132,13 @@ export const CategoryCarousel = () => {
           <div
             ref={containerRef}
             className="flex space-x-4 transform transition-transform duration-500 max-w-[1200px]"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={() => setIsDragging(false)} // Reset if mouse leaves
-            onTouchStart={handleMouseDown}
-            onTouchMove={handleMouseMove}
-            onTouchEnd={handleMouseUp}
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragEnd}
             style={{ transform: `translateX(-${currentIndex * 200}px)` }}
           >
             {categories.map((category, index) => (
